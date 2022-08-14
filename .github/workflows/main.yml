@@ -57,6 +57,7 @@ jobs:
         with:
           projectPath: TestUnityCI
           targetPlatform: StandaloneWindows64
+          allowDirtyBuild: true
 
       # Output
       - uses: actions/upload-artifact@v2
