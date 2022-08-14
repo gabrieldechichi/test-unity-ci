@@ -58,6 +58,8 @@ jobs:
           projectPath: TestUnityCI
           targetPlatform: StandaloneWindows64
           allowDirtyBuild: true
+          buildName: mono-debug
+          buildsPath: build/win64
 
       # Output
       - uses: actions/upload-artifact@v2
