@@ -32,9 +32,10 @@ jobs:
       # Cache
       - uses: actions/cache@v2
         with:
-          path: Library
-          key: Library-${{ hashFiles('Assets/**', 'Packages/**', 'ProjectSettings/**') }}
+          path: TestUnityCI/Library
+          key: Library-${{ hashFiles('TextUnityCI/Assets/**', 'TextUnityCI/Packages/**', 'TextUnityCI/ProjectSettings/**') }}
           restore-keys: |
+            Library-TestUnityCI
             Library-
 
       # Test
@@ -43,7 +44,7 @@ jobs:
         env:
           UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
         with:
-          projectPath: TestUnityCI/
+          projectPath: TestUnityCI
           githubToken: ${{ secrets.GITHUB_TOKEN }}
 
       # Build
@@ -54,7 +55,7 @@ jobs:
           UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
           UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
         with:
-          projectPath: TestUnityCI/
+          projectPath: TestUnityCI
           targetPlatform: StandaloneWindows64
 
       # Output
